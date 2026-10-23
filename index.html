@@ -159,6 +159,12 @@ summary::after{content:"+";color:var(--sun);font-size:1.4rem;line-height:1}
 details[open] summary::after{content:"–"}
 details p{margin-top:10px;color:var(--muted)}
 
+.langbar{background:var(--ink);display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px;padding:8px 12px}
+.langbar span{font-weight:800;font-size:.8rem;letter-spacing:.12em;color:var(--mint);margin-right:6px}
+.langbar button{font:inherit;font-weight:700;font-size:.88rem;color:#fff;background:transparent;border:2px solid rgba(143,221,223,.5);border-radius:999px;padding:5px 14px;cursor:pointer}
+.langbar button:hover{border-color:var(--mint)}
+.langbar button[aria-pressed=true]{background:var(--sun);border-color:var(--sun)}
+@media(max-width:520px){.langbar span{width:100%;text-align:center;margin:0}.langbar button{font-size:.8rem;padding:4px 10px}}
 footer{background:var(--forest);color:var(--cream);padding:56px 0;font-size:.88rem}
 footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
 footer img{height:32px}
@@ -179,21 +185,30 @@ footer p{opacity:.7}
       <li><a href="#location">Location</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a class="btn" href="#timetable">타임테이블</a>
+    <a class="btn" href="#timetable" data-i="nav.tt">타임테이블</a>
+  </div>
+  <div class="langbar" role="group" aria-label="Language">
+    <span>🌐 LANGUAGE</span>
+    <button data-lang="ko">한국어</button>
+    <button data-lang="en">English</button>
+    <button data-lang="ru">Русский</button>
+    <button data-lang="vi">Tiếng Việt</button>
+    <button data-lang="ja">日本語</button>
+    <button data-lang="mn">Монгол</button>
   </div>
 </nav>
 
-<div class="notice">✦ 개교 64주년 <b>비슬제</b>와 함께합니다 · Held with the 64th BISEUL Festival ✦</div>
+<div class="notice" data-i="notice">✦ 개교 64주년 <b>비슬제</b>와 함께합니다 ✦</div>
 
 <header class="hero" id="top" style="position:relative">
-  <div class="sticker" style="left:6%;top:70px">FREE<br>ENTRY<br>무료입장</div>
+  <div class="sticker" style="left:6%;top:70px">FREE<br>ENTRY</div>
   <div class="sticker" style="right:6%;top:220px;background:var(--cream);animation-direction:reverse">10.29<br>THU<br>14–22</div>
   <div class="wrap" style="position:relative;z-index:1">
     <p class="kicker">KEIMYUNG COLLEGE UNIVERSITY PRESENTS</p>
     <h1 class="big">Global<br>Day 2026</h1>
     <span class="pill">ON BOARD</span>
-    <p class="sub">하루 만에 떠나는 세계 여행, 외국인 유학생의 날</p>
-    <p class="meta">10.29 (THU) 14:00 – 22:00 · 계명문화대학교 풋살구장</p>
+    <p class="sub" data-i="hero.sub">하루 만에 떠나는 세계 여행, 외국인 유학생의 날</p>
+    <p class="meta" data-i="hero.meta">10.29 (목) 14:00 – 22:00 · 계명문화대학교 풋살구장</p>
     <div class="cd" aria-label="행사까지 남은 시간">
       <div><b id="cd-d">00</b><small>DAYS</small></div>
       <div><b id="cd-h">00</b><small>HOURS</small></div>
@@ -201,8 +216,8 @@ footer p{opacity:.7}
       <div><b id="cd-s">00</b><small>SEC</small></div>
     </div>
     <div class="actions">
-      <a class="btn" href="#lineup">라인업 보기</a>
-      <a class="btn light" href="#info">행사 정보</a>
+      <a class="btn" href="#lineup" data-i="btn.lineup">라인업 보기</a>
+      <a class="btn light" href="#info" data-i="btn.info">행사 정보</a>
     </div>
   </div>
   <div class="sun"></div>
@@ -219,7 +234,7 @@ footer p{opacity:.7}
       <span>Malaysia</span> <i>▶</i> <span>Indonesia</span> <i>▶</i> <span>Vietnam</span> <i>▶</i> <span>Mexico</span>
     </p>
     <p class="lu l3">
-      <span>Face Painting</span> <i>▶</i> <span>한글 키캡 만들기</span> <i>▶</i> <span>전통 놀이</span> <i>▶</i> <span>World Food</span> <i>▶</i> <span>비슬제</span>
+      <span>Face Painting</span> <i>▶</i> <span data-i="lu.keycap">한글 키캡 만들기</span> <i>▶</i> <span data-i="lu.games">전통 놀이</span> <i>▶</i> <span>World Food</span> <i>▶</i> <span data-i="lu.biseul">비슬제</span>
     </p>
     <p class="more">AND MANY MORE!</p>
   </div>
@@ -235,9 +250,8 @@ footer p{opacity:.7}
     <div>
       <span class="label">About</span>
       <h2 class="big">One day,<br>many worlds</h2>
-      <p>계명문화대학교에서 공부하는 여러 나라 유학생들과 재학생, 지역 주민이 함께 어울리는 하루.</p>
-      <p>노을이 지는 풋살구장에서 세계 각국의 음식을 맛보고, 한국 전통 놀이를 체험하고, 무대 위 친구들을 함께 응원해요. 비슬제와 함께하는 가을밤, 여권 없이 떠나는 여행에 탑승하세요.</p>
-      <p class="en">A day for international students, KMCU students and neighbors — taste the world, play Korean games, and cheer on stage under the autumn sunset.</p>
+      <p data-i="about.p1">계명문화대학교에서 공부하는 여러 나라 유학생들과 재학생, 지역 주민이 함께 어울리는 하루.</p>
+      <p data-i="about.p2">노을이 지는 풋살구장에서 세계 각국의 음식을 맛보고, 한국 전통 놀이를 체험하고, 무대 위 친구들을 함께 응원해요. 비슬제와 함께하는 가을밤, 여권 없이 떠나는 여행에 탑승하세요.</p>
     </div>
     <div class="stats">
       <div class="stat" style="background:var(--sun)"><span class="big">4</span>Countries' Food</div>
@@ -254,20 +268,20 @@ footer p{opacity:.7}
     <h2 class="big">Event Info</h2>
     <div class="pass">
       <div class="main">
-        <div class="head"><img src="assets/symUI_ele2.png" alt="KMCU"><span class="tag">FREE ENTRY · 무료입장</span></div>
+        <div class="head"><img src="assets/symUI_ele2.png" alt="KMCU"><span class="tag" data-i="info.free">FREE ENTRY · 무료입장</span></div>
         <div class="route"><span class="big">KMCU</span><span class="line"></span><span class="big">WORLD</span></div>
         <div class="fields">
-          <div><small>DATE</small><b>2026.10.29 (목)</b></div>
+          <div><small>DATE</small><b data-i="f.date">2026.10.29 (목)</b></div>
           <div><small>BOARDING</small><b>14:00</b></div>
           <div><small>ARRIVAL</small><b>22:00</b></div>
-          <div><small>GATE</small><b>풋살구장</b></div>
-          <div><small>PASSENGER</small><b>유학생 · 재학생 · 지역주민</b></div>
-          <div><small>WITH</small><b>비슬제 64th</b></div>
+          <div><small>GATE</small><b data-i="f.gate">풋살구장</b></div>
+          <div><small>PASSENGER</small><b data-i="f.pass">유학생 · 재학생 · 지역주민</b></div>
+          <div><small>WITH</small><b data-i="f.with">비슬제 64th</b></div>
         </div>
       </div>
       <div class="stub">
         <div><small style="letter-spacing:.15em">FLIGHT</small><div class="big">GD 1029</div></div>
-        <div>학생지원팀 · 유학생지원팀 · 한국어교육센터 · 대학일자리플러스센터</div>
+        <div data-i="stub.org">학생지원팀 · 유학생지원팀 · 한국어교육센터 · 대학일자리플러스센터</div>
         <div class="barcode"></div>
       </div>
     </div>
@@ -279,11 +293,11 @@ footer p{opacity:.7}
     <span class="label">Timetable</span>
     <h2 class="big">Flight Schedule</h2>
     <div class="tt">
-      <div class="row"><time>14:00–20:00</time><div><h3>체험존 Experience Zone</h3><p>페이스 페인팅(스티커) · 한글 키캡 만들기 · 전통 놀이</p></div><span class="tag">수련관 앞 주차장</span></div>
-      <div class="row"><time>17:00–22:00</time><div><h3>음식존 World Food Zone</h3><p>말레이시아 · 인도네시아 · 베트남 · 멕시코 음식 부스</p></div><span class="tag">풋살구장</span></div>
-      <div class="row stage"><time>17:30–18:30</time><div><h3>Traditional Costume Runway</h3><p>전통의상 경연대회</p></div><span class="tag">메인 무대</span></div>
-      <div class="row stage"><time>18:30–19:30</time><div><h3>KMCU Campus Vibes</h3><p>유학생 UCC 콘테스트</p></div><span class="tag">메인 무대</span></div>
-      <div class="row stage"><time>19:30–21:00</time><div><h3>K-POP Contest</h3><p>K-POP 경연대회</p></div><span class="tag">메인 무대</span></div>
+      <div class="row"><time>14:00–20:00</time><div><h3 data-i="tt.exp.h">체험존 Experience Zone</h3><p data-i="tt.exp.p">페이스 페인팅(스티커) · 한글 키캡 만들기 · 전통 놀이</p></div><span class="tag" data-i="tag.lot">수련관 앞 주차장</span></div>
+      <div class="row"><time>17:00–22:00</time><div><h3 data-i="tt.food.h">음식존 World Food Zone</h3><p data-i="tt.food.p">말레이시아 · 인도네시아 · 베트남 · 멕시코 음식 부스</p></div><span class="tag" data-i="tag.futsal">풋살구장</span></div>
+      <div class="row stage"><time>17:30–18:30</time><div><h3>Traditional Costume Runway</h3><p data-i="tt.s1">전통의상 경연대회</p></div><span class="tag" data-i="tag.stage">메인 무대</span></div>
+      <div class="row stage"><time>18:30–19:30</time><div><h3>KMCU Campus Vibes</h3><p data-i="tt.s2">유학생 UCC 콘테스트</p></div><span class="tag" data-i="tag.stage">메인 무대</span></div>
+      <div class="row stage"><time>19:30–21:00</time><div><h3>K-POP Contest</h3><p data-i="tt.s3">K-POP 경연대회</p></div><span class="tag" data-i="tag.stage">메인 무대</span></div>
     </div>
   </div>
 </section>
@@ -293,9 +307,9 @@ footer p{opacity:.7}
     <span class="label">Zones</span>
     <h2 class="big">Explore</h2>
     <div class="cards">
-      <div class="card" style="background:var(--mint)"><span class="em">🎨🪁</span><h3 class="big">Play</h3><p class="time">체험존 · 14:00–20:00 · 수련관 앞 주차장</p><ul><li>페이스 페인팅(스티커)</li><li>한글 키캡 만들기</li><li>제기차기 등 전통 놀이</li></ul></div>
-      <div class="card" style="background:var(--sun2)"><span class="em">🍜🌮</span><h3 class="big">Taste</h3><p class="time">음식존 · 17:00–22:00 · 풋살구장</p><ul><li>말레이시아</li><li>인도네시아</li><li>베트남</li><li>멕시코</li></ul></div>
-      <div class="card" style="background:var(--forest);color:var(--cream)"><span class="em">🎤✨</span><h3 class="big">Cheer</h3><p class="time">메인 무대 · 17:30–21:00 · 풋살구장</p><ul><li>전통의상 런웨이</li><li>유학생 UCC 상영</li><li>K-POP 경연</li></ul></div>
+      <div class="card" style="background:var(--mint)"><span class="em">🎨🪁</span><h3 class="big">Play</h3><p class="time" data-i="z.play.t">체험존 · 14:00–20:00 · 수련관 앞 주차장</p><ul data-i="z.play.l"><li>페이스 페인팅(스티커)</li><li>한글 키캡 만들기</li><li>제기차기 등 전통 놀이</li></ul></div>
+      <div class="card" style="background:var(--sun2)"><span class="em">🍜🌮</span><h3 class="big">Taste</h3><p class="time" data-i="z.taste.t">음식존 · 17:00–22:00 · 풋살구장</p><ul data-i="z.taste.l"><li>말레이시아</li><li>인도네시아</li><li>베트남</li><li>멕시코</li></ul></div>
+      <div class="card" style="background:var(--forest);color:var(--cream)"><span class="em">🎤✨</span><h3 class="big">Cheer</h3><p class="time" data-i="z.cheer.t">메인 무대 · 17:30–21:00 · 풋살구장</p><ul data-i="z.cheer.l"><li>전통의상 런웨이</li><li>유학생 UCC 상영</li><li>K-POP 경연</li></ul></div>
     </div>
   </div>
 </section>
@@ -305,9 +319,9 @@ footer p{opacity:.7}
     <span class="label">Main Stage</span>
     <h2 class="big">Tonight on stage</h2>
     <div class="acts">
-      <div class="act"><time>17:30</time><div><h3 class="big">Costume Runway</h3><p>각 나라의 전통의상을 입은 유학생들이 무대를 걷습니다.</p></div></div>
-      <div class="act"><time>18:30</time><div><h3 class="big">Campus Vibes</h3><p>유학생이 직접 담은 계명문화대 캠퍼스 라이프 UCC.</p></div></div>
-      <div class="act"><time>19:30</time><div><h3 class="big">K-POP Contest</h3><p>노래와 댄스로 가을밤을 뜨겁게 만들 K-POP 경연.</p></div></div>
+      <div class="act"><time>17:30</time><div><h3 class="big">Costume Runway</h3><p data-i="st1">각 나라의 전통의상을 입은 유학생들이 무대를 걷습니다.</p></div></div>
+      <div class="act"><time>18:30</time><div><h3 class="big">Campus Vibes</h3><p data-i="st2">유학생이 직접 담은 계명문화대 캠퍼스 라이프 UCC.</p></div></div>
+      <div class="act"><time>19:30</time><div><h3 class="big">K-POP Contest</h3><p data-i="st3">노래와 댄스로 가을밤을 뜨겁게 만들 K-POP 경연.</p></div></div>
     </div>
   </div>
 </section>
@@ -317,9 +331,9 @@ footer p{opacity:.7}
     <div>
       <span class="label">Location</span>
       <h2 class="big">Gate</h2>
-      <p><b>계명문화대학교 풋살구장</b><br>대구광역시 달서구 달서대로 675</p>
-      <p style="color:var(--muted);margin-top:10px">체험존은 수련관 앞 주차장에서 운영됩니다.<br>지하철 2호선 계명대역 이용 권장</p>
-      <p style="margin-top:22px"><a class="btn" href="https://map.naver.com/p/search/계명문화대학교" target="_blank" rel="noopener">네이버 지도로 보기</a></p>
+      <p data-i="loc.addr"><b>계명문화대학교 풋살구장</b><br>대구광역시 달서구 달서대로 675</p>
+      <p style="color:var(--muted);margin-top:10px" data-i="loc.note">체험존은 수련관 앞 주차장에서 운영됩니다.<br>지하철 2호선 계명대역 이용 권장</p>
+      <p style="margin-top:22px"><a class="btn" href="https://map.naver.com/p/search/계명문화대학교" target="_blank" rel="noopener" data-i="loc.btn">네이버 지도로 보기</a></p>
     </div>
     <iframe title="계명문화대학교 지도" loading="lazy" src="https://www.google.com/maps?q=계명문화대학교&output=embed"></iframe>
   </div>
@@ -329,18 +343,18 @@ footer p{opacity:.7}
   <div class="wrap">
     <span class="label">FAQ</span>
     <h2 class="big">Before Boarding</h2>
-    <details><summary>누구나 참여할 수 있나요? / Who can join?</summary><p>외국인 유학생, 재학생, 한국어교육센터 어학연수생, 지역 주민 누구나 참여할 수 있습니다. Everyone is welcome.</p></details>
-    <details><summary>입장료가 있나요? / Is there a fee?</summary><p>입장은 무료입니다. 음식 부스 이용 방법은 추후 공지됩니다.</p></details>
-    <details><summary>무대 경연에 나가고 싶어요 / I want to perform</summary><p>전통의상 · UCC · K-POP 경연 참가 방법은 유학생지원팀에서 별도로 안내합니다.</p></details>
-    <details><summary>비가 오면 어떻게 되나요? / What if it rains?</summary><p>우천 시 변경 사항은 이 페이지와 학교 공지로 안내합니다.</p></details>
-    <details><summary>문의는 어디로 하나요? / Contact</summary><p>유학생지원팀 053-589-7798</p></details>
+    <details><summary data-i="q1">누구나 참여할 수 있나요?</summary><p data-i="a1">외국인 유학생, 재학생, 한국어교육센터 어학연수생, 지역 주민 누구나 참여할 수 있습니다.</p></details>
+    <details><summary data-i="q2">입장료가 있나요?</summary><p data-i="a2">입장은 무료입니다. 음식 부스 이용 방법은 추후 공지됩니다.</p></details>
+    <details><summary data-i="q3">무대 경연에 나가고 싶어요</summary><p data-i="a3">전통의상 · UCC · K-POP 경연 참가 방법은 유학생지원팀에서 별도로 안내합니다.</p></details>
+    <details><summary data-i="q4">비가 오면 어떻게 되나요?</summary><p data-i="a4">우천 시 변경 사항은 이 페이지와 학교 공지로 안내합니다.</p></details>
+    <details><summary data-i="q5">문의는 어디로 하나요?</summary><p data-i="a5">유학생지원팀 053-589-7798</p></details>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
     <img src="assets/logo1.png" alt="계명문화대학교">
-    <p>KMCU Global Day 2026 · 외국인 유학생의 날<br>© 2026 Keimyung College University</p>
+    <p><span data-i="footer">KMCU Global Day 2026 · 외국인 유학생의 날</span><br>© 2026 Keimyung College University</p>
   </div>
 </footer>
 
@@ -356,5 +370,6 @@ function tick() {
 }
 tick(); setInterval(tick, 1000);
 </script>
+<script src="i18n.js"></script>
 </body>
 </html>
